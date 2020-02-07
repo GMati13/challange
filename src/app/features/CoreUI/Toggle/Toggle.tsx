@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import Label from '../Label/Label';
 import styles from './Toggle.module.scss';
+import Checkbox from "../Checkbox/Checkbox";
 
 interface Props {
   /**
@@ -38,20 +39,12 @@ interface Props {
 
 const Toggle: FC<Props> = forwardRef((props, ref) => {
   const { label, defaultValue, disabled, onChange, ...otherProps } = props;
+  const [isChecked, setIsChecked] = useState(!!defaultValue);
 
-  const [isChecked, setChecked] = useState(!!defaultValue);
-
-  const toggle = useCallback(
-    () => {
-      const newValue = !isChecked;
-      setChecked(newValue);
-
-      if (onChange) {
-        onChange(newValue);
-      }
-    },
-    [isChecked, onChange],
-  );
+  const toggle = (value: boolean) => {
+    setIsChecked(value);
+    onChange(value);
+  };
 
   return (
     <Label title={label || ''} disabled={disabled} position='right'>
@@ -67,13 +60,11 @@ const Toggle: FC<Props> = forwardRef((props, ref) => {
         })}
         />
       </span>
-      <input
-        type='checkbox'
+      <Checkbox
         className={styles.input}
-        ref={ref}
-        checked={isChecked}
         disabled={disabled}
         onChange={toggle}
+        ref={ref}
         {...otherProps}
       />
     </Label>
