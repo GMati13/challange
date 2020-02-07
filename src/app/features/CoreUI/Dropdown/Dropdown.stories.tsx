@@ -11,17 +11,22 @@ export default {
 };
 
 export const WithToggling: FC = () => {
-  const [ isOpen, setOpen ] = useState(false);
+  const [isOpen, setOpen] = useState(false);
 
   return (
     <TwoColumnGrid>
       <Dropdown
-        label="With toggling"
+        label='With toggling'
         isOpen={isOpen}
         onFocus={() => setOpen(!isOpen)}
         onBlur={() => setOpen(false)}
       >
-        {[1, 2, 3].map(n => <DropdownItem onClick={() => setOpen(false)}>Item {n}</DropdownItem>)}
+        {[1, 2, 3].map((n) => (
+          <DropdownItem onClick={() => setOpen(false)}>
+            Item
+            {n}
+          </DropdownItem>
+        ))}
       </Dropdown>
     </TwoColumnGrid>
   );
@@ -29,7 +34,7 @@ export const WithToggling: FC = () => {
 
 export const WithErrorItem = () => (
   <TwoColumnGrid>
-    <Dropdown label="With error item" isOpen={true}>
+    <Dropdown label='With error item' isOpen>
       <DropdownItem>Default</DropdownItem>
       <DropdownItem error>Error</DropdownItem>
     </Dropdown>
@@ -38,8 +43,13 @@ export const WithErrorItem = () => (
 
 export const Disabled = () => (
   <TwoColumnGrid>
-    <Dropdown label="Disabled" disabled>
-      {[1, 2, 3].map(n => <DropdownItem>Item {n}</DropdownItem>)}
+    <Dropdown label='Disabled' disabled>
+      {[1, 2, 3].map((n) => (
+        <DropdownItem>
+Item
+          {n}
+        </DropdownItem>
+      ))}
     </Dropdown>
   </TwoColumnGrid>
-)
+);

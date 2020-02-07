@@ -17,14 +17,14 @@
 
 .label {
   align-items: center;
-  background: #F3F7FB;
+  background: #f3f7fb;
   border-color: transparent;
   border-radius: 4px;
   border-width: 0;
   color: #527094;
   cursor: pointer;
   display: flex;
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   height: 100%;
   justify-content: space-between;
@@ -33,23 +33,23 @@
   user-select: none;
   width: 100%;
 
+  .arrow {
+    display: flex;
+
+    &.opened {
+      transform: rotate(180deg);
+    }
+  }
+
   &.disabled {
-    color: #A5B1C4;
+    color: #a5b1c4;
     cursor: default;
 
     .arrow {
       path {
-        fill: #DFE6F1;
+        fill: #dfe6f1;
       }
     }
-  }
-}
-
-.arrow {
-  display: flex;
-
-  &.opened {
-    transform: rotate(180deg);
   }
 }
 
@@ -62,10 +62,10 @@
   .menu {
     width: 100%;
     margin-top: 8px;
-    border: 1px solid #EBEFF6;
+    border: 1px solid #ebeff6;
     border-radius: 4px;
     z-index: 1000;
-    box-shadow: 0px 8px 10px rgba(82, 97, 119, 0.16);
+    box-shadow: 0 8px 10px rgba(82, 97, 119, 0.16);
 
     &:not(.opened) {
       display: none;

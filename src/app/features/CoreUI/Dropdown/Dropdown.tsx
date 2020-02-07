@@ -44,7 +44,7 @@ const Dropdown: FC<Props> = ({
   const labelClass = disabled ? classNames(styles.label, styles.disabled) : styles.label;
   const inputClass = disabled ? classNames(styles.input, styles.disabled) : styles.input;
   const ref = React.createRef<HTMLDivElement>();
-  const [ allowBlur, setAllowBlur ] = useState(true);
+  const [allowBlur, setAllowBlur] = useState(true);
 
   const handleClickOutside = useCallback((event: MouseEvent) => {
     if (ref && ref.current && !ref.current.contains(event.target as Node)) {
@@ -69,10 +69,11 @@ const Dropdown: FC<Props> = ({
       <label className={labelClass}>
         {label}
         <span className={arrowClass}>
-          <DropDownIcon/>
+          <DropDownIcon />
         </span>
         <input
-          value="" onChange={() => null}
+          value=''
+          onChange={() => null}
           className={inputClass}
           onFocus={() => onFocus()}
           onBlur={() => allowBlur && onBlur()}

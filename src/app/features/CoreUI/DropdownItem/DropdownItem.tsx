@@ -23,7 +23,7 @@ const DropdownItem: FC<Props> = ({
   const itemClass = error ? classNames(styles.item, styles.error) : styles.item;
 
   return (
-    <div className={itemClass} onClick={onClick}>
+    <div className={itemClass} onClick={onClick} onKeyDown={() => null} role='button' tabIndex={0}>
       {children}
     </div>
   );
