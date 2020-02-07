@@ -30,8 +30,8 @@ export const WithToggling: FC = () => {
 export const WithErrorItem = () => (
   <TwoColumnGrid>
     <Dropdown label="With error item" isOpen={true}>
-      <DropdownItem onClick={() => alert('Default clicked')}>Default</DropdownItem>
-      <DropdownItem onClick={() => alert('Error clicked')} error>Error</DropdownItem>
+      <DropdownItem>Default</DropdownItem>
+      <DropdownItem error>Error</DropdownItem>
     </Dropdown>
   </TwoColumnGrid>
 );
