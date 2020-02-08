@@ -1,4 +1,4 @@
-import React, {FC, forwardRef, Ref, useCallback, useRef, useState} from 'react';
+import React, { FC, forwardRef, Ref, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import styles from './FormCheckbox.module.scss';
@@ -6,13 +6,13 @@ import Label from '../Label/Label';
 import CheckboxIcon from '../Icons/CheckboxIcon';
 import Checkbox from '../Checkbox/Checkbox';
 import useHover from '../../../../utils/hooks/useHover';
-import useFocus from "../../../../utils/hooks/useFocus";
+import useFocus from '../../../../utils/hooks/useFocus';
 
 interface Props {
   /**
    * Label to show above checkbox input
    */
-  label?: string;
+  label: string;
 
   /**
    * Identifier for form submit
@@ -43,10 +43,15 @@ interface Props {
    * React ref passtrough to input node
    */
   ref?: Ref<HTMLInputElement>;
+
+  /**
+   * Class for checkbox
+   */
+  className?: string;
 }
 
 const FormCheckbox: FC<Props> = forwardRef((props, ref) => {
-  const { label, defaultValue, onChange, hovered, ...otherProps } = props;
+  const { label, defaultValue, onChange, ...otherProps } = props;
 
   const checkbox = useRef(false);
 
@@ -59,7 +64,7 @@ const FormCheckbox: FC<Props> = forwardRef((props, ref) => {
   const toggle = (value: boolean) => {
     setIsChecked(value);
     if (onChange) {
-      onChange(value);
+      onChange();
     }
   };
 

@@ -1,9 +1,9 @@
-import React, { FC, forwardRef, Ref, useCallback, useState } from 'react';
+import React, { FC, forwardRef, Ref, useState } from 'react';
 import classNames from 'classnames';
 
 import Label from '../Label/Label';
 import styles from './Toggle.module.scss';
-import Checkbox from "../Checkbox/Checkbox";
+import Checkbox from '../Checkbox/Checkbox';
 
 interface Props {
   /**
@@ -43,7 +43,9 @@ const Toggle: FC<Props> = forwardRef((props, ref) => {
 
   const toggle = (value: boolean) => {
     setIsChecked(value);
-    onChange(value);
+    if (onChange) {
+      onChange(value);
+    }
   };
 
   return (

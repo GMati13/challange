@@ -1,7 +1,6 @@
-import React, {FC, forwardRef, Ref, useCallback, useState} from 'react';
+import React, { FC, forwardRef, Ref, useCallback, useState } from 'react';
 
-import styles from './Checkbox.module.scss';
-import Input from "../Input/Input";
+import Input from '../Input/Input';
 
 interface Props {
   /**
@@ -35,13 +34,13 @@ interface Props {
   ref?: Ref<HTMLInputElement>;
 
   /**
-   * Class for input
+   * Class for checkbox
    */
-  className: string;
+  className?: string;
 }
 
 const Checkbox: FC<Props> = forwardRef((props, ref) => {
-  const {label, name, disabled, className, defaultValue, onChange, ...otherProps} = props;
+  const { label, name, disabled, className, defaultValue, onChange, ...otherProps } = props;
 
 
   const [isChecked, setChecked] = useState(defaultValue);
